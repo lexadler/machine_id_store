@@ -1,0 +1,5 @@
+{% for machine_id in gathered_ids %}
+{% if machine_id and machine_id not in known_ids %}
+{{ machine_id }}
+{% endif %}
+{% endfor %}

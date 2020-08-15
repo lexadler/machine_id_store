@@ -1,0 +1,5 @@
+{% for machine_id in (known_ids + gathered_ids) | unique %}
+{% if machine_id %}
+{{ machine_id }}
+{% endif %}
+{% endfor %}

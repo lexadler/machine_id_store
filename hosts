@@ -1,0 +1,5 @@
+[control_node]
+localhost ansible_connection=local
+
+[servers]
+testbox ansible_host='{{ testbox.host }}' ansible_user='{{ testbox.user }}' ansible_ssh_pass='{{ testbox.pass }}' ansible_become_pass='{{ testbox.pass }}'

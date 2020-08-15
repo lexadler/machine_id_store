@@ -1,0 +1,18 @@
+- hosts: servers
+  gather_facts: no
+  pre_tasks:
+  # gather only machine ids to speed up the play
+  - name: Collecting machine IDs
+    setup:
+      filter: ansible_machine_id
+    become: no
+
+- hosts: localhost
+  connection: local
+  vars:
+    servers_list: "{{ playbook_dir }}/servers.list"
+    new_list: "{{ playbook_dir }}/new.list"
+  roles:
+  # render lists on the control node
+  - role: render_lists
+    become: no
