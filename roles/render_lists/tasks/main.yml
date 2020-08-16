@@ -1,4 +1,4 @@
-- name: Get gathered machine IDs from servers group
+- name: Get gathered machine IDs from the servers group
   set_fact:
     gathered_ids: "{{ groups['servers'] | map('extract', hostvars, ['ansible_machine_id']) | list }}"
 
@@ -7,18 +7,14 @@
   set_fact:
     known_ids: "{{ lookup('file', servers_list).split('\n') if servers_list is exists else [] }}"
 
-- debug:
-    msg: "{{ gathered_ids }}"
-
-- debug:
-    msg: "{{ known_ids }}"
-
 - name: Render newly discovered machine IDs to {{ new_list }}
   template:
     src: "new.list.j2"
     dest: "{{ new_list }}"
+    mode: 0644
 
-- name: Updating {{servers_list }} with newly discovered machine IDs
+- name: Updating {{servers_list }} with the newly discovered machine IDs
   template:
     src: "servers.list.j2"
     dest: "{{ servers_list }}"
+    mode: 0644
