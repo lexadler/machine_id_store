@@ -10,10 +10,10 @@ source env/bin/activate
 pip install --upgrade pip setuptools wheel
 pip install -r requirements.txt
 ```
-Provide a valid inventory file with hosts defined in the `servers` group and place it in project directory. Sample inventory in the repo assumes that Ansible Vault is used for storing credentials and vault file is stored in `group_vars/all/vault.yml`. Feel free to replace this files with your own.
-See more:
-[Ansible Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)
-[Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)
+Provide a valid inventory file with hosts defined in the `servers` group and place it in project directory. Sample inventory in the repo assumes that Ansible Vault is used for storing credentials and vault file is stored in `group_vars/all/vault.yml`. Feel free to replace this files with your own.<br/>
+See more:<br/>
+[Ansible Inventory](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html)<br/>
+[Ansible Vault](https://docs.ansible.com/ansible/latest/user_guide/vault.html)<br/>
 
 ## Usage
 Run the playbook with the command:
